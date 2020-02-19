@@ -42,13 +42,22 @@ public class PowersOfTwo
 				if (userGuess != 0)
 				{
 					correctAnswer = Math.pow(2, exponent);
-					System.out.printf("%.0f%n", correctAnswer); // print correct answer in whole number format
-				}
+					
+					// check to see if the answer is correct		
+					if (userGuess == correctAnswer)
+						System.out.println("Correct");
+
+					else
+					{
+						System.out.print("Wrong. Correct Answer: ");
+						System.out.printf("%.0f%n", correctAnswer); // print correct answer in whole number format
+					}
+				} // end if
 
 				// if you wants to quit, they type 0, then the progam should end
 				else if (userGuess == 0)
 					continueLoop = false;
-			}
+			} // end try
 
 			catch (InputMismatchException inputMismatchException)
 			{
@@ -57,9 +66,7 @@ public class PowersOfTwo
 				System.out.printf("You must enter an integer. Please try again. %n%n");
 			}
 
-		} while (continueLoop == true);
-
-		
+		} while (continueLoop == true); // end do
 
 	} // end main
 } // end PowersOfTwo
