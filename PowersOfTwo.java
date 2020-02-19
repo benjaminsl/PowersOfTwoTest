@@ -7,7 +7,11 @@ public class PowersOfTwo
 	{
 		// Create scanner object
 		Scanner scanner = new Scanner(System.in);
-		boolean continueWrongInputLoop = true; //
+		boolean continueLoop = true; //
+
+		// user guess vs correct guess
+		int userGuess = 0;
+		int correctGuess = 0;
 
 		// Output info about the program
 		System.out.println();
@@ -19,9 +23,24 @@ public class PowersOfTwo
 
 		do
 		{
-			System.out.print("2^0: ");
-			scanner.nextInt();	
-		} while (continueWrongInputLoop == true);
+			try // try to get user input
+			{
+				System.out.print("2^0: ");
+				userGuess = scanner.nextInt();	
+
+				// if you wants to quit, they type 0, then the progam should end
+				if (userGuess == 0)
+					continueLoop = false;
+			}
+
+			catch (InputMismatchException inputMismatchException)
+			{
+				System.out.printf("%nException: %s%n", inputMismatchException);
+				scanner.nextLine(); // discard input so user can try again
+				System.out.printf("You must enter an integer. Please try again. %n%n");
+			}
+
+		} while (continueLoop == true);
 
 		
 
