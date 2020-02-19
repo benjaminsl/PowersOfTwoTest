@@ -22,6 +22,8 @@ public class PowersOfTwo
 		// variable for random number
 		int exponent = 0;
 
+		int highestExponent = 0; 
+
 		// Output info about the program
 		System.out.println();
 		System.out.println("*********************************");
@@ -30,11 +32,15 @@ public class PowersOfTwo
 		System.out.println("*********************************");
 		System.out.println();
 
+		// Ask user for highest exponent to test
+		System.out.print("What is the highest exponent you want to test for?: ");
+		highestExponent = scanner.nextInt();
+
 		do
 		{
 			try // try to get user input
 			{
-				exponent = rand.nextInt(18); // range 0 to 17
+				exponent = rand.nextInt(highestExponent + 1); // range 0 to highest exponent 
 				System.out.print("2^" + exponent + ": ");
 				userGuess = scanner.nextInt();	
 
